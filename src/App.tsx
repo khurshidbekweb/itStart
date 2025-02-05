@@ -1,7 +1,7 @@
 
 const App = () => {
   return (
-    <div>
+    <div className="text-center text-green-500">
         sfd
     </div>
   );
