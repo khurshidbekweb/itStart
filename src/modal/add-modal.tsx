@@ -1,4 +1,4 @@
-import FileUpload from "@/components/file-upload";
+
 import { Button } from "@/components/ui/button";
 import { v4 as uuidv4 } from 'uuid';
 import {
@@ -18,16 +18,10 @@ import UploadImage from "@/components/imgbb-upload";
 
 
 const AddModal = () => {
-    const [file, setFile] = useState<File | null>(null);
     const [open, setOpen] = useState(false)
     const [photo, setPhoto] = useState("");
     console.log(photo);
     
-    const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        if (e.target.files && e.target.files.length > 0) {
-            setFile(e.target.files[0]);
-        }
-    };
     const queryClient = useQueryClient()
     const createData = useMutation({
         mutationFn: curdUtils.createData,
