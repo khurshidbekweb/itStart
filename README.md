@@ -6,3 +6,5 @@ serverni ishga tushirish uchun
 loyihani ishga tushirish esa 
 
 # npm run dev
+
+Aslida .env gitga chiqarmaslik kerak lekin sizlar tushinishingiz uchun man chiqardim

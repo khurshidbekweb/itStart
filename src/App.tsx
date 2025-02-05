@@ -1,8 +1,8 @@
-
+import { Button } from "@/components/ui/button"
 const App = () => {
   return (
     <div className="text-center text-green-500">
-        sfd
+      <Button>Clice me</Button>
     </div>
   );
 };
