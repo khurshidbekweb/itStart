@@ -44,7 +44,7 @@ const App = () => {
             </TableHeader>
             <TableBody>
               {data?.length ? data.map((el: cardType) => (
-                <TableRow className="hover:bg-gray-400 text-white hover:text-black transition-colors delay-100 hover:cursor-pointer text-start">
+                <TableRow key={el.id} className="hover:bg-gray-400 text-white hover:text-black transition-colors delay-100 hover:cursor-pointer text-start">
                   <TableCell>
                     <img className="w-[200px] object-cover h-[100px] rounded-lg" src={el.photo} alt={el.title} />
                   </TableCell>
