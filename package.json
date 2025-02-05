@@ -11,6 +11,7 @@
     "server": "json-server --watch data/seminars.json --port 9001"
   },
   "dependencies": {
+    "@radix-ui/react-dialog": "^1.1.5",
     "@radix-ui/react-slot": "^1.1.1",
     "@tanstack/react-query": "^5.66.0",
     "axios": "^1.7.9",
@@ -21,7 +22,8 @@
     "react-dom": "^18.3.1",
     "react-hot-toast": "^2.5.1",
     "tailwind-merge": "^3.0.1",
-    "tailwindcss-animate": "^1.0.7"
+    "tailwindcss-animate": "^1.0.7",
+    "uuidv4": "^6.2.13"
   },
   "devDependencies": {
     "@eslint/js": "^9.17.0",
