@@ -57,14 +57,6 @@
       "photo": "https://picsum.photos/id/7/750/730"
     },
     {
-      "id": "8",
-      "title": "Современные тренды в уходе за кожей",
-      "description": "Семинар о новейших трендах в уходе за кожей и эффективных методах лечения.",
-      "date": "15.02.2025",
-      "time": "17:00",
-      "photo": "https://picsum.photos/id/8/750/730"
-    },
-    {
       "id": "9",
       "title": "Мастер-класс от Kosmoteros",
       "description": "Практический мастер-класс по использованию инновационных косметических средств.",
@@ -73,28 +65,12 @@
       "photo": "https://picsum.photos/id/9/750/730"
     },
     {
-      "id": "10",
-      "title": "Будущее косметологии с Kosmoteros",
-      "description": "Обсуждение перспектив развития косметологии и роли инноваций.",
-      "date": "19.02.2025",
-      "time": "19:00",
-      "photo": "https://picsum.photos/id/10/750/730"
-    },
-    {
-      "id": "1fe9f099-f25a-4f5b-9a78-827c5998dbc5",
-      "date": "2025-02-20",
-      "description": "mashkale",
-      "photo": {},
-      "time": "04:54",
-      "title": "Mashka"
-    },
-    {
-      "id": "7b7cf136-8614-4a10-8a3d-6789ce6e4b79",
-      "date": "2025-02-11",
-      "description": "werv",
-      "photo": "https://i.ibb.co/MxMDyDZG/aliviya.jpg",
-      "time": "06:44",
-      "title": "eav"
+      "id": "01b085c7-7517-42db-bd1a-53ab0d4db71b",
+      "date": "2025-02-18",
+      "description": "efvae",
+      "photo": "https://i.ibb.co/67xKCm4y/coca-cola.png",
+      "time": "18:16",
+      "title": "dfvdf"
     }
   ]
 }

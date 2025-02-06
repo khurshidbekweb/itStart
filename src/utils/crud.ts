@@ -14,7 +14,7 @@ export const curdUtils = {
         const {data} = await customAxios.patch(`${id}`, {date, description,photo,time,title,id})
         return data
     },
-    deleteData: async ({id}:cardUpload) => {
+    deleteData: async (id:string) => {
         const {data} = await customAxios.delete(`${id}`)
         return data
     },

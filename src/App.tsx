@@ -8,19 +8,31 @@ import {
   TableRow,
 } from "@/components/ui/table"
 
-import { useQuery } from "@tanstack/react-query";
+import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import Header from "./components/header";
 import { curdUtils } from "./utils/crud";
 import { cardType } from "./types";
-import { Pencil, Trash } from "lucide-react";
+import { Pencil } from "lucide-react";
 import { Input } from "./components/ui/input";
 import AddModal from "./modal/add-modal";
+import AccessModal from "./modal/access-modal";
+import toast from "react-hot-toast";
 const App = () => {
   const { data } = useQuery({
     queryKey: ['get_data'],
     queryFn: curdUtils.getData
   })
-  console.log(data);
+  const queryClient = useQueryClient()
+  const deleteData = useMutation({
+    mutationFn: curdUtils.deleteData,
+    onSuccess: () => {
+      toast.success('Success delete item ✅')
+      queryClient.invalidateQueries({queryKey: ['get_data']})
+    },
+    onError: (err) => {
+      console.log(err);      
+    }
+  })
 
   return (
     <div className="text-center text-green-500">
@@ -52,7 +64,7 @@ const App = () => {
                   <TableCell  className="text-[10px] md:text-[12px] xl:text-[14px] font-medium">{el.description}</TableCell>
                   <TableCell  className="text-[12px] md:text-[16px] xl:text-[16px]">{el.date}</TableCell>
                   <TableCell className="text-center text-[14px] font-bold">{el.time}</TableCell>
-                  <TableCell className="flex items-center justify-center gap-x-4"><Pencil/> <Trash/></TableCell>
+                  <TableCell className="flex items-center justify-center gap-x-4"><Pencil/> <AccessModal fn={deleteData.mutate} id={el.id} style=""/></TableCell>
               </TableRow>
               )) :
               <></>
