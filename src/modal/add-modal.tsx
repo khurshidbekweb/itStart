@@ -57,7 +57,7 @@ const AddModal = () => {
     }
     return (
         <Dialog open={open} onOpenChange={setOpen}>
-            <DialogTrigger className="flex text-[16px] gap-3 p-2 px-4 rounded-lg font-bold bg-green-400 text-white">Add <BadgePlus/></DialogTrigger>
+            <DialogTrigger className="flex w-full md:w-auto md:flex-1 justify-center items-center text-[16px] gap-3 p-2 px-4 rounded-lg font-bold bg-green-400 text-white">Add <BadgePlus/></DialogTrigger>
             <DialogContent>
                 <DialogHeader>
                     <DialogTitle className="text-white text-center">Add new Item</DialogTitle>
@@ -69,7 +69,7 @@ const AddModal = () => {
                         <input required type="date" name="date" className="bg-inherit border outline-none p-[6px] rounded-lg w-[50%]"/>
                         <input required type="time" name="time" id="" className="bg-inherit border outline-none p-[6px] rounded-lg w-[50%]" />
                     </div>
-                    <UploadImage handeCheck={(value) => setCheck(value)} file={file} onUpload={(url) => setPhoto(url)} handleFileChange={handleFileChange} upload={upload}/>
+                    <UploadImage photo={photo} handeCheck={(value) => setCheck(value)} file={file} onUpload={(url) => setPhoto(url)} handleFileChange={handleFileChange} upload={upload}/>
                     <Button disabled={check} type="submit" className="w-full text-center font-bold text-[18px] bg-green-600 hover:bg-green-700">Add</Button>
                 </form>
             </DialogContent>

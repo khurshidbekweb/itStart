@@ -1,21 +1,20 @@
 import { useState } from "react";
 import axios from "axios";
 import { ImageDown } from "lucide-react";
-interface UploadImageProps {
-  onUpload: (url: string) => void;
-  file: File | null;
-  handleFileChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
-  handeCheck: (value: boolean) => void
-  upload: boolean
-}
+import { UploadImageProps } from "@/types";
 
-const UploadImage: React.FC<UploadImageProps> = ({ onUpload, file, handleFileChange, handeCheck, upload }) => {
+
+
+const UploadImage: React.FC<UploadImageProps> = ({ onUpload, file, handleFileChange, handeCheck, upload, photo }) => {
   const [loading, setLoading] = useState(false);
+  console.log(photo, 'image');
+
   const uploadToImgBB = async () => {
     if (!file) {
       alert("Rasm tanlang!");
       return;
     }
+    
     setLoading(true);
     const formData = new FormData();
     formData.append("image", file);
@@ -29,8 +28,8 @@ const UploadImage: React.FC<UploadImageProps> = ({ onUpload, file, handleFileCha
       if (response.data.success) {
         const imageUrl = response.data.data.url;
         alert("Rasm yuklandi: " + imageUrl);
-        onUpload(imageUrl); 
-        handeCheck(false)
+        onUpload(imageUrl);
+        handeCheck(true)
       } else {
         alert("Yuklashda xatolik!");
       }
@@ -53,9 +52,8 @@ const UploadImage: React.FC<UploadImageProps> = ({ onUpload, file, handleFileCha
             onChange={handleFileChange}
           />
         </label>
-        {file && (
+        {file ? (
           <div className="text-center mt-2">
-            <p>File: {file.name}</p>
             {file.type.startsWith("image/") && (
               <img
                 src={URL.createObjectURL(file)}
@@ -64,7 +62,9 @@ const UploadImage: React.FC<UploadImageProps> = ({ onUpload, file, handleFileCha
               />
             )}
           </div>
-        )}
+        ):
+          <img className="mt-2 w-32 h-32 object-cover rounded-md" src={photo} alt="edit upload image" />        
+        }
       </div>
       {upload && <button onClick={uploadToImgBB} disabled={loading}>
         {loading ? "Yuklanmoqda..." : "Rasmni serverga yuklash"}

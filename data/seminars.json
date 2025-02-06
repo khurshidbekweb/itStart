@@ -33,18 +33,10 @@
       "photo": "https://picsum.photos/id/4/750/730"
     },
     {
-      "id": "5",
-      "title": "Секреты профессионалов Kosmoteros",
-      "description": "Семинар с участием ведущих специалистов по использованию средств Kosmoteros.",
-      "date": "09.02.2025",
-      "time": "14:00",
-      "photo": "https://picsum.photos/id/5/750/730"
-    },
-    {
       "id": "6",
       "title": "Эффективные методики омоложения",
       "description": "Обучение современным методикам омоложения и ухода за кожей.",
-      "date": "11.02.2025",
+      "date": "2025-02-13",
       "time": "15:00",
       "photo": "https://picsum.photos/id/6/750/730"
     },
@@ -63,14 +55,6 @@
       "date": "17.02.2025",
       "time": "18:00",
       "photo": "https://picsum.photos/id/9/750/730"
-    },
-    {
-      "id": "fd78a919-e14c-44ca-a9c3-313c00932f83",
-      "date": "2025-02-14",
-      "description": "wev",
-      "photo": "https://i.ibb.co/fd6DBFhM/achiq-chuchik.jpg",
-      "time": "11:36",
-      "title": "bv"
     }
   ]
 }
