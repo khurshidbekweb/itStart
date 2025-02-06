@@ -20,20 +20,28 @@ import UploadImage from "@/components/imgbb-upload";
 const AddModal = () => {
     const [open, setOpen] = useState(false)
     const [photo, setPhoto] = useState("");
-    console.log(photo);
-    
+    const [upload, setUpload] = useState(false)
+    const [file, setFile] = useState<File | null>(null);
     const queryClient = useQueryClient()
+    const [check, setCheck] = useState(true)
     const createData = useMutation({
         mutationFn: curdUtils.createData,
         onSuccess: () => {
             queryClient.invalidateQueries({queryKey: ['get_data']})
             toast.success('Succes a new item')
             setOpen(false)
+            setFile(null)
         },
         onError: (err)=>{
             console.log(err);            
         }
     })
+    const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        if (e.target.files && e.target.files.length > 0) {
+            setFile(e.target.files[0]);
+            setUpload(true)
+        }
+    };
     const handlePost = (e: React.FormEvent) => {
         e.preventDefault();
         const form = e.target as HTMLFormElement;
@@ -55,15 +63,14 @@ const AddModal = () => {
                     <DialogTitle className="text-white text-center">Add new Item</DialogTitle>
                 </DialogHeader>
                 <form onSubmit={handlePost} className="flex flex-col space-y-3 text-white">
-                    <Input type="text" name="title" className="w-full" placeholder="Write title"/>
-                    <Input type="text" name="description" className="w-full" placeholder="Write description"/>
+                    <Input required type="text" name="title" className="w-full" placeholder="Write title"/>
+                    <Input required type="text" name="description" className="w-full" placeholder="Write description"/>
                     <div className="flex items-center gap-x-2">
-                        <input type="date" name="date" className="bg-inherit border outline-none p-[6px] rounded-lg w-[50%]"/>
-                        <input type="time" name="time" id="" className="bg-inherit border outline-none p-[6px] rounded-lg w-[50%]" />
+                        <input required type="date" name="date" className="bg-inherit border outline-none p-[6px] rounded-lg w-[50%]"/>
+                        <input required type="time" name="time" id="" className="bg-inherit border outline-none p-[6px] rounded-lg w-[50%]" />
                     </div>
-                    <UploadImage onUpload={(url) => setPhoto(url)} />
-                    {/* <FileUpload file={file} handleFileChange={handleFileChange}/> */}
-                    <Button type="submit" className="w-full text-center font-bold text-[18px] bg-green-600 hover:bg-green-700">Add</Button>
+                    <UploadImage handeCheck={(value) => setCheck(value)} file={file} onUpload={(url) => setPhoto(url)} handleFileChange={handleFileChange} upload={upload}/>
+                    <Button disabled={check} type="submit" className="w-full text-center font-bold text-[18px] bg-green-600 hover:bg-green-700">Add</Button>
                 </form>
             </DialogContent>
         </Dialog>
