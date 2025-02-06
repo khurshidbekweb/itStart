@@ -49,7 +49,7 @@ const App = () => {
       <Header />
       <main className="max-w-6xl mx-auto px-3 mt-10">       
         <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-          <Input onChange={(e) => setSearch(e.target.value)} className="w-full text-white md:w-[65%] xl:w-[80%] !p-4" type="search" placeholder="Search a item..."/>
+          <Input onChange={(e) => setSearch(e.target.value)} className="w-full text-white md:w-[65%] xl:w-[80%] !p-5" type="search" placeholder="Search a item..."/>
           <AddModal/>
         </div>
         <Table className="min-w-[540px] md:min-w-[720px] overflow-x-scroll mt-8">
@@ -96,7 +96,7 @@ const App = () => {
                     </div>
                   </TableCell>
               </TableRow>
-              )) : <h2 className="text-[22px] md:text-[30px] xl:text-[30px] text-red-500 font-medium text-center mt-4 max-w-6xl">Kechirasiz bunday ma'lumot mavjud emas !</h2>
+              )) : <h2 className="text-[22px] md:text-[30px] xl:text-[30px] text-red-500 font-medium text-center mt-4 max-w-6xl">Sorry, such information does not exist! 😔</h2>
               }
             </TableBody>
           </Table>

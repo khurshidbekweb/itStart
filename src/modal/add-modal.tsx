@@ -23,7 +23,7 @@ const AddModal = () => {
     const [upload, setUpload] = useState(false)
     const [file, setFile] = useState<File | null>(null);
     const queryClient = useQueryClient()
-    const [check, setCheck] = useState(true)
+    const [check, setCheck] = useState(false)
     const createData = useMutation({
         mutationFn: curdUtils.createData,
         onSuccess: () => {
@@ -70,7 +70,7 @@ const AddModal = () => {
                         <input required type="time" name="time" id="" className="bg-inherit border outline-none p-[6px] rounded-lg w-[50%]" />
                     </div>
                     <UploadImage photo={photo} handeCheck={(value) => setCheck(value)} file={file} onUpload={(url) => setPhoto(url)} handleFileChange={handleFileChange} upload={upload}/>
-                    <Button disabled={check} type="submit" className="w-full text-center font-bold text-[18px] bg-green-600 hover:bg-green-700">Add</Button>
+                    <Button disabled={!check} type="submit" className="w-full text-center font-bold text-[18px] bg-green-600 hover:bg-green-700">Add</Button>
                 </form>
             </DialogContent>
         </Dialog>

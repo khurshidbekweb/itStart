@@ -7,7 +7,7 @@ import { UploadImageProps } from "@/types";
 
 const UploadImage: React.FC<UploadImageProps> = ({ onUpload, file, handleFileChange, handeCheck, upload, photo }) => {
   const [loading, setLoading] = useState(false);
-  console.log(photo, 'image');
+  console.log(photo?1:2);
 
   const uploadToImgBB = async () => {
     if (!file) {
@@ -63,7 +63,7 @@ const UploadImage: React.FC<UploadImageProps> = ({ onUpload, file, handleFileCha
             )}
           </div>
         ):
-          <img className="mt-2 w-32 h-32 object-cover rounded-md" src={photo} alt="edit upload image" />        
+          photo && <img className="mt-2 w-32 h-32 object-cover rounded-md" src={photo} alt="edit upload image" />        
         }
       </div>
       {upload && <button onClick={uploadToImgBB} disabled={loading}>
