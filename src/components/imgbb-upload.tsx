@@ -2,6 +2,7 @@ import { useState } from "react";
 import axios from "axios";
 import { ImageDown } from "lucide-react";
 import { UploadImageProps } from "@/types";
+import { Button } from "./ui/button";
 
 
 
@@ -66,9 +67,9 @@ const UploadImage: React.FC<UploadImageProps> = ({ onUpload, file, handleFileCha
           photo && <img className="mt-2 w-32 h-32 object-cover rounded-md" src={photo} alt="edit upload image" />        
         }
       </div>
-      {upload && <button onClick={uploadToImgBB} disabled={loading}>
+      {upload && <Button onClick={uploadToImgBB} disabled={loading}>
         {loading ? "Yuklanmoqda..." : "Rasmni serverga yuklash"}
-      </button>
+      </Button>
       }
     </div>
   );

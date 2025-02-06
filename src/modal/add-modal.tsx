@@ -31,6 +31,8 @@ const AddModal = () => {
             toast.success('Succes a new item')
             setOpen(false)
             setFile(null)
+            setPhoto('')
+            setUpload(false)
         },
         onError: (err)=>{
             console.log(err);            
